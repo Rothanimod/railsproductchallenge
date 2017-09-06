@@ -22,13 +22,11 @@
     <%= f.text_field :price %>
   </div>
 
-
-    <%= f.collection_check_boxes(:category_ids, @categories, :id, :name) do |b| %>
-       <%= b.label class:"label-checkbox" do%>
-        <%=b.check_box b.name, b.id %>
-       <%end%>
-   <% end %>
-
+  <div class="field">
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name  do |m| %>
+      <%= m.check_box %> <%= m.label %>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
